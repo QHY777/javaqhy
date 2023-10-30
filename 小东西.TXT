@@ -1,0 +1,114 @@
+7位小数
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        final double PI=3.14159265358979323;
+        DecimalFormat df=new DecimalFormat("0.0000000");	
+		double a=PI*n*n;
+		System.out.print( df.format(a) );
+		sc.close();
+    }
+	
+}
+
+
+多行输入
+
+package blue;
+
+
+import java.util.Scanner;
+public class Test {
+	public static void main(String[] args) {
+		Scanner sc =new Scanner(System.in);
+		String[] str = sc.nextLine().split(" ");
+		String[] str2 = sc.nextLine().split(" "); 
+		sc.close();
+		int[] num = new int[2];	
+		for(int i=0;i<str.length;i++) {
+			num[i] = Integer.parseInt(String.valueOf(str[i]));
+		}
+		int n=num[1];
+		int k=num[2];
+		int[] num2 = new int[n];
+		for(int i=0;i<str.length;i++) {
+			num2[i] = Integer.parseInt(String.valueOf(str2[i]));
+		}
+		
+
+		
+	}
+}
+
+
+ 1 import java.io.BufferedReader;
+ 2 import java.io.File;
+ 3 import java.io.FileReader;
+ 4 
+ 5 
+ 6 public class txttest {
+ 7     /**
+ 8      * 读取txt文件的内容
+ 9      * @param file 想要读取的文件对象
+10      * @return 返回文件内容
+11      */
+12     public static String txt2String(File file){
+13         String result = "";
+14         try{
+15             BufferedReader br = new BufferedReader(new FileReader(file));//构造一个BufferedReader类来读取文件
+16             String s = null;
+17             while((s = br.readLine())!=null){//使用readLine方法，一次读一行
+18                 result = result + "\n" +s;
+19             }
+20             br.close();    
+21         }catch(Exception e){
+22             e.printStackTrace();
+23         }
+24         return result;
+25     }
+26     
+27     public static void main(String[] args){
+28         File file = new File("D:/luceneData/test1.txt");
+29         System.out.println(txt2String(file));
+30     }
+31 }
+	
+
+package 读取文件;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Test {	
+		public static void main(String[] args) throws IOException {		
+			BufferedReader bf=new BufferedReader(new FileReader("F:\\data.txt"));
+			String textLine;
+			String str = "2";
+			while((textLine=bf.readLine())!=null){
+				str+="	"+textLine;
+			}
+			String[] numbers=str.split("	");
+			double []number=new double[numbers.length]; 
+			for (int i = 1; i < numbers.length; i++) {
+				number[i]=Double.parseDouble(numbers[i]);
+				System.out.println(number[i]);
+			}
+			bf.close();
+		}
+}
+
+算法运行时间
+ong startTime = System.nanoTime(); //获取开始时间
+	    //算法代码
+	    long endTime = System.nanoTime(); //获取结束时间
+		System.out.println("程序运行时间：" + (endTime - startTime) + "ns"); //输出程序运行时间
+
+
+
